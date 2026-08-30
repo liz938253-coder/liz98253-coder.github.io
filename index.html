@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="个人小工具集">
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="style.css">
+    <title>个人小工具集</title>
+</head>
+<body>
+<div class="container">
+    <h2>📓个人工具集</h2>
+    <!-- tab导航栏 -->
+    <div class="tabs">
+        <div class="tab-item active" data-tab="todo">📅 日程提示</div>
+        <div class="tab-item" data-tab="cost">💰花费反思</div>
+        <div class="tab-item" data-tab="train">💪训练计划</div>
+        <div class="tab-item" data-tab="timetable">📖课程表</div>
+    </div>
+
+    <!-- panel‑todo 日程待办｜已加入伪小组件卡片 -->
+    <div class="tab-panel active" id="panel-todo">
+        <!-- 伪桌面小组件卡片 -->
+        <div class="widget-card">
+            <h4>📆 今日待办概览</h4>
+            <div id="widget-todo-list">
+                <div class="empty-tip">暂无今日任务</div>
+            </div>
+        </div>
+
+        <div class="calendar-wrap">
+            <input type="date" id="selectDate">
+        </div>
+        <div class="quick-btn-row">
+            <button class="quick-todo" data-text="背单词">背单词</button>
+            <button class="quick-todo" data-text="喝水2L">喝水2L</button>
+            <button class="quick-todo" data-text="运动30分钟">运动30分钟</button>
+            <button class="quick-todo" data-text="阅读40分钟">阅读40分钟</button>
+        </div>
+        <div class="input-row">
+            <input type="text" id="todoInput" placeholder="输入今日待办任务">
+            <button id="addTodo">添加</button>
+        </div>
+        <div id="todoList" class="list-wrap"></div>
+    </div>
+
+    <!-- panel‑cost 花费反思 -->
+    <div class="tab-panel" id="panel-cost">
+        <div class="input-row">
+            <input type="text" id="costInput" placeholder="记录消费 / 反思">
+            <button id="addCost">添加</button>
+        </div>
+        <div id="costList" class="list-wrap"></div>
+    </div>
+
+    <!-- panel‑train 训练计划 -->
+    <div class="tab-panel" id="panel-train">
+        <div class="train-template-block">
+            <h4>📋训练模板库</h4>
+            <div class="train-template-buttons" id="trainTemplateBtnWrap"></div>
+            <div class="input-row">
+                <input type="text" id="templateNameInput" placeholder="新建训练模板，例：肩背日">
+                <button id="addNewTemplate">新增模板</button>
+            </div>
+            <div id="templateEditArea">
+                <div class="input-row">
+                    <input type="text" id="actionNameInput" placeholder="动作名称">
+                    <input type="number" id="setInput" placeholder="组数">
+                    <input type="number" id="repInput" placeholder="次数">
+                    <button id="addActionBtn">添加动作</button>
+                </div>
+                <div id="templateActionList" class="list-wrap"></div>
+                <div class="input-row">
+                    <button id="importTemplateToDay">导入到今日训练</button>
+                    <button id="delCurrentTemplate">删除当前模板</button>
+                </div>
+            </div>
+        </div>
+        <hr style="margin:16px 0;">
+        <h4>📅当日实际训练记录</h4>
+        <div class="calendar-wrap">
+            <input type="date" id="trainSelectDate">
+        </div>
+        <div class="input-row">
+            <input type="text" id="trainInput" placeholder="输入今日训练，例如：侧平举4组×15次">
+            <button id="addTrain">添加</button>
+        </div>
+        <div id="trainList" class="list-wrap"></div>
+    </div>
+
+    <!-- panel‑timetable 课程表1‑5节课 -->
+    <div class="tab-panel" id="panel-timetable">
+        <div class="input-row">
+            <input type="text" id="courseNameInput" placeholder="课程名称，例如：高等数学">
+            <select id="courseWeekday">
+                <option value="1">周一</option>
+                <option value="2">周二</option>
+                <option value="3">周三</option>
+                <option value="4">周四</option>
+                <option value="5">周五</option>
+                <option value="6">周六</option>
+                <option value="7">周日</option>
+            </select>
+            <select id="coursePeriod">
+                <option value="1">第1节</option>
+                <option value="2">第2节</option>
+                <option value="3">第3节</option>
+                <option value="4">第4节</option>
+                <option value="5">第5节</option>
+            </select>
+            <button id="addCourse">添加课程</button>
+        </div>
+        <div class="timetable-wrap"></div>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
